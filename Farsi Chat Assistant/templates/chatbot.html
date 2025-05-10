@@ -1,0 +1,129 @@
+<!-- chatbot.html -->
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>دستیار فارسی</title>
+  <style>
+    body { margin: 0; font-family: sans-serif; background: #f4f4f4; }
+    .chat-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0078D7;
+      color: white;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 14px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+      100% { transform: scale(1); }
+    }
+    .chat-container {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 300px;
+      max-height: 400px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      animation: slideIn 0.3s ease-out;
+    }
+    @keyframes slideIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .chat-header {
+      background: #0078D7;
+      color: white;
+      padding: 10px;
+      text-align: center;
+      font-weight: bold;
+    }
+    .chat-body {
+      flex: 1;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+    }
+    .chat-input {
+      display: flex;
+      border-top: 1px solid #ccc;
+    }
+    .chat-input input {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      font-size: 14px;
+    }
+    .chat-input button {
+      background: #0078D7;
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .message { margin: 5px 0; }
+    .user { text-align: left; color: #444; }
+    .bot { text-align: right; color: #0078D7; }
+  </style>
+</head>
+<body>
+  <div class="chat-toggle" onclick="toggleChat()">💬 گفتگو با من</div>
+  <div class="chat-container" id="chat">
+    <div class="chat-header">دستیار فارسی آماده گفتگو است</div>
+    <div class="chat-body" id="chatBody"></div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="پیام خود را بنویسید..." />
+      <button id="sendBtn" onclick="sendMessage()">✉️</button>
+    </div>
+  </div>
+
+  <script>
+    function toggleChat() {
+      const chat = document.getElementById('chat');
+      chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
+    }
+
+    async function sendMessage() {
+      const input = document.getElementById('userInput');
+      const msg = input.value.trim();
+      if (!msg) return;
+      appendMessage(msg, 'user');
+      input.value = '';
+      const response = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt: msg })
+      });
+      const data = await response.json();
+      appendMessage(data.response, 'bot');
+    }
+
+    document.getElementById("userInput").addEventListener("keypress", function(e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        document.getElementById("sendBtn").click();
+      }
+    });
+
+
+    function appendMessage(text, sender) {
+      const msg = document.createElement('div');
+      msg.className = 'message ' + sender;
+      msg.innerText = text;
+      document.getElementById('chatBody').appendChild(msg);
+    }
+  </script>
+</body>
+</html>
