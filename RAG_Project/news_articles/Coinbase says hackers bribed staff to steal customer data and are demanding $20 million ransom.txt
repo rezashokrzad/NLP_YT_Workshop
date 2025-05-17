@@ -1,0 +1,20 @@
+Coinbase 
+on Thursday reported that cybercriminals bribed overseas support agents to steal customer data to use in social engineering attacks. The incident may cost Coinbase up to $400 million to fix, the company estimated.
+
+The crypto exchange operator received an email on May 11 from someone claiming they obtained information about certain Coinbase customer accounts as well as other internal Coinbase documentation, including materials relating to customer service and account management systems, Coinbase reported in a Securities and Exchange Commission filing.
+
+The company’s shares were down more than 6% in morning trading.
+
+The email demanded money in exchange for not publicly disclosing the information, but Coinbase says it has not paid the demand and is cooperating with law enforcement on the investigation of the incident.
+
+Although passwords and private keys were not compromised, affected data included sensitive data such as names, addresses, phone numbers and emails; masked bank account numbers and identifiers as well as the last four digits of Social Security numbers; government ID images and account balances, the company said.
+
+“Cyber criminals bribed and recruited a group of rogue overseas support agents to steal Coinbase customer data to facilitate social engineering attacks,” the company said in a blog post. “These insiders abused their access to customer support systems to steal the account data for a small subset of customers. No passwords, private keys, or funds were exposed and Coinbase Prime accounts are untouched. We will reimburse customers who were tricked into sending funds to the attacker.”
+
+Coinbase had detected the breach independently in previous months, per the filing. It immediately terminated the employees involved, warned customers whose information may have been accessed and enhanced its fraud monitoring protections.
+
+The threat actor paid overseas contractors and employees in support rolls to obtain the information, it said.
+
+“We’re cooperating closely with law enforcement to pursue the harshest penalties possible and will not pay the $20 million ransom demand we received,” the company said in the blog. “Instead we are establishing a $20 million reward fund for information leading to the arrest and conviction of the criminals responsible for this attack.”
+
+Coinbase operates the largest crypto exchange in the U.S. In the past week it announced an acquisition that is expected to help it expand its global reach and gained entry to the benchmark S&P 500 stock index, which will take effect next week. On the earnings call last week, CEO Brian Armstrong discussed his ambition to make Coinbase “the No. 1 financial services app in the world” in the next five to 10 years.
